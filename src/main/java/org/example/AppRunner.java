@@ -106,6 +106,9 @@ public class AppRunner {
     }
 
     private void contentDetecting(List<String> text) {
+        if (text.isEmpty()){
+            return;
+        }
         for (String line : text) {
             if (floatDetecting(line)) {
                 floats.add(line);

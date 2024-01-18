@@ -20,7 +20,11 @@ public class FileReader {
         try (BufferedReader reader = new BufferedReader(new java.io.FileReader(file))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                text.add(line);
+                line = line.replace("\n", "");
+                line = line.trim();
+                if (!line.isEmpty()) {
+                    text.add(line);
+                }
             }
             return text;
         } catch (IOException e) {
